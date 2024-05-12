@@ -1,5 +1,5 @@
 # Smart Contract Management
-
+Hello everyone!!!
 Overview 
 
 This project showcases essential ATM features executed on the Ethereum and Avalanche blockchains. It comprises two primary elements: a React interface for engaging with the smart contract and a Solidity smart contract that executes the ATM functionalities.
