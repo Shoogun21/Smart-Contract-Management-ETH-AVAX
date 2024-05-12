@@ -7,7 +7,6 @@ export default function HomePage() {
   const [account, setAccount] = useState(undefined);
   const [atm, setATM] = useState(undefined);
   const [balance, setBalance] = useState(undefined);
-  //I added two state variables
   const [customDepositAmount, setCustomDepositAmount] = useState(undefined);
   const [customWithdrawAmount, setCustomWithdrawAmount] = useState(undefined);
 
@@ -43,7 +42,7 @@ export default function HomePage() {
   const accounts = await ethWallet.request({ method: 'eth_requestAccounts' });
   handleAccount(accounts);
 
-  // once wallet is set we can get a reference to our deployed contract
+
   getATMContract();
 };
    
@@ -76,7 +75,7 @@ export default function HomePage() {
       getBalance();
     }
   };
-  //custom deposit 
+
   const depositCustom = async () => {
     if (atm && customDepositAmount > 0) {
       const tx = await atm.deposit(customDepositAmount);
@@ -86,7 +85,7 @@ export default function HomePage() {
       console.error("Invalid amount for deposit");
     }
   };
-  //custom withdraw
+  
   const withdrawCustom = async () => {
     if (atm && customWithdrawAmount > 0) {
       const tx = await atm.withdraw(customWithdrawAmount);
@@ -98,11 +97,11 @@ export default function HomePage() {
   };
 
   const initUser = () => {
-    // Check to see if user has Metamask
+    
     if (!ethWallet) {
       return <p>Please install MetaMask to use this ATM.</p>;
     }
-     // Check to see if user is connected. If not, connect to their account
+     
     if (!account) {
       return <button onClick={connectAccount} style={{ padding: '10px 20px', height: '40px' }}>Connect your MetaMask wallet</button>
     }
